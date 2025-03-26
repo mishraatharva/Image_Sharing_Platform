@@ -1,4 +1,12 @@
 ## Image Sharing Plateform Project:
+  [![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)]
+  [![TensorFlow](https://img.shields.io/badge/-TensorFlow-FF6F00?logo=tensorflow&logoColor=white)]
+  ![Pandas](https://img.shields.io/badge/-Pandas-150458?logo=pandas&logoColor=white)
+  ![NumPy](https://img.shields.io/badge/-NumPy-013243?logo=numpy&logoColor=white)
+  [![Flask](https://img.shields.io/badge/-Flask-FF4B4B)]
+  [![mongodb](https://img.shields.io/badge/-mongodb-3776AB?logo=python&logoColor=white)]
+  [![VScode](https://img.shields.io/badge/-VScode-3776AB?logo=python&logoColor=white)]
+
 - Simple image sharing plateform project which basically utilizes concept of Image Captioning.
 
 ### Key Features:
@@ -7,9 +15,17 @@
 - All data in stored in mongodb
 - User will login and upload a picture of his choice and caption for uploaded image can be created automatically.
 
-This project uses VGG16 pretrained model for generating feature vector for training. And uses LSTM for caption generation.
-[image of create model]
-Description of technical things
-loss function result
-code flow
-pic of UI
+## Overview
+
+This repository contains code for an image caption generation system using deep learning techniques. The system leverages a pretrained VGG16 model for feature extraction and a custom captioning model which was trained using LSTM for generating captions. The model is trained on the Flickr8k dataset using an lstm to generate caption.
+
+## About the Dataset
+
+The [Flickr8k dataset](https://www.kaggle.com/adityajn105/flickr8k) is used for training and evaluating the image captioning system. It consists of 8,091 images, each with five captions describing the content of the image. The dataset provides a diverse set of images with multiple captions per image, making it suitable for training caption generation models.
+
+Download the dataset from [Kaggle](https://www.kaggle.com/adityajn105/flickr8k) and organize the files as follows:
+
+- flickr8k
+  - Images
+    - (image files)
+  - captions.txt
