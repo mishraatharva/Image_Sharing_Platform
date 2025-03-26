@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        .title-container {
+            text-align: center;
+            /* ✅ Centers only the title */
+            margin-bottom: 20px;
+        }
+
+        /* Centering the h1 and adding blue color with an underline */
+        h1 {
+            color: blue;
+            font-weight: bold;
+            padding-bottom: 10px;
+            border-bottom: 3px solid blue;
+            display: inline-block;
+        }
+
+        .upload_image {
+            color: orange;
+            font-weight: bold;
+            display: inline-block;
+            border-bottom: 2px solid orange;
+            /* border-bottom: 5px solid orange; */
+            /* -bottom: 5px; */
+        }
+
+        .past_uploaded_image {
+            color: orange;
+            display: inline-block;
+            border-bottom: 2px solid orange;
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <div class="title-container">
+        <!-- TOP TITLE -->
+        <h1>User Dashboard</h1>
+    </div>
+
+    <div class="container mt-5">
+        <!-- FOR IMAGE UPLOAD FOR -->
+        <div class="upload_image">
+            <h2">Upload an Image</h2>
+        </div>
+        <br>
+        <br>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('activity.upload_image') }}" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <!-- <label for="file" class="form-label">Choose Image:</label> -->
+                <input type="file" class="form-control" name="file" id="file" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+        <br>
+
+    </div>
+
+    <div class="container mt-10">
+        <!-- For Table -->
+
+        <div class="past_uploaded_image">
+            <!-- TOP TITLE -->
+            <h3>Past Upload Images</h3>
+        </div>
+        <br>
+        <br>
+
+
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                /* margin: auto; */
+            }
+
+            td,
+            th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+        <table border="1">
+            <tr>
+                <th>Image</th>
+                <th>Generated Caption</th>
+            </tr>
+            {% for item in user_data %}
+            <tr>
+                <td><img src="{{ item.image_src }}" alt="User Image" height="100" width="100"></td>
+                <td>{{ item.caption }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</body>
+
+</html>

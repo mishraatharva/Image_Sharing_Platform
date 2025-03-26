@@ -1,0 +1,27 @@
+model_training:
+  train_data_path : data/processed/train
+  validation_data_path : data/processed/validation
+  trained_model_path : data/trained_model/cnn_lstm_model
+  history_path : data/history
+
+
+CreateSqueezeModel_config:
+ dropout : 0.5
+ activation : 'relu'
+ input_shape : 512
+
+
+CreateLSTMSequence_config:
+ input_shape : 512
+ max_length_output_length : 15
+ input_length_lstm : 32
+ decoder2_activation : 'relu'
+ outputs_activation : 'softmax'
+ loss : 'sparse_categorical_crossentropy'
+ optimizer : "adam"
+ vocab_size : 7916
+
+
+model_prediction_config:
+ trained_model_path : data/trained_model/cnn_lstm_model
+ vectorizer_path : data/processed

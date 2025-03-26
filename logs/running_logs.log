@@ -1,0 +1,156 @@
+[2025-03-24 07:02:02,251: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-24 07:02:02,251: INFO: stage_01_data_transformation: DataTransformationConfigurationManager object created]
+[2025-03-24 07:02:02,267: INFO: stage_01_data_transformation: created a dictionary 'descriptions' containing image is a key : all caption in a list as a value.]
+[2025-03-24 07:02:02,518: INFO: stage_01_data_transformation: data cleaning completed]
+[2025-03-24 07:02:02,518: INFO: stage_01_data_transformation: training_data, validation_data data created seperately]
+[2025-03-24 07:02:02,549: INFO: stage_01_data_transformation: training_data, validation_data data saved at required location]
+[2025-03-24 07:02:02,597: INFO: stage_01_data_transformation: 'train_data_captions, train_data_images, train_data_features' created]
+[2025-03-24 07:02:05,253: INFO: stage_01_data_transformation: vectorizer object created]
+[2025-03-24 07:04:22,315: INFO: stage_01_data_transformation: vectorized training_data]
+[2025-03-24 07:04:22,331: INFO: stage_01_data_transformation: 'validation_data_captions, validation_data_images, validation_data_features' created]
+[2025-03-24 07:04:56,510: INFO: stage_01_data_transformation: vectorized validation_data]
+[2025-03-24 07:04:56,568: INFO: stage_01_data_transformation: final train data saved containes train_data_captions, train_data_images, train_data_features in pickle file]
+[2025-03-24 07:04:56,581: INFO: stage_01_data_transformation: final validation data saved containes validation_data_captions, validation_data_images, validation_data_features in pickle file]
+[2025-03-24 07:04:56,599: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-03-24 07:04:57,161: INFO: builder_impl: Assets written to: U:\nlp_project\Image_Sharing_Plateform\data\processed\vectorizer\assets]
+[2025-03-24 07:04:57,182: INFO: stage_01_data_transformation: vectorizer data saved for further use.]
+[2025-03-24 07:04:57,196: INFO: main: >>>>>> stage Data Transformation Stage completed <<<<<<
+
+x==========x]
+[2025-03-24 08:30:08,463: INFO: main: >>>>>> stage Model Training Stage started <<<<<<]
+[2025-03-24 08:30:08,472: INFO: stage_03_model_training_pipeline: ModelTrainingConfigurationManager object created]
+[2025-03-24 08:30:09,606: INFO: stage_03_model_training_pipeline: training data loaded.]
+[2025-03-24 08:30:09,753: INFO: stage_03_model_training_pipeline: validation data loaded]
+[2025-03-24 08:30:09,753: INFO: stage_03_model_training_pipeline: train_data_features and train_caption_tokenized fetched from loaded train_data]
+[2025-03-24 08:30:09,753: INFO: stage_03_model_training_pipeline: validation_data_features and validation_caption_tokenized fetched from loaded validation data]
+[2025-03-24 11:02:05,414: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 11:02:05,414: ERROR: main: 'WindowsPath' object has no attribute 'model_training']
+Traceback (most recent call last):
+  File "main.py", line 46, in <module>
+    pipeline_mlflow.setup_mlflow()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_03_model_training_pipeline.py", line 102, in setup_mlflow
+    trained_model_path = self.config.model_training.trained_model_path
+AttributeError: 'WindowsPath' object has no attribute 'model_training'
+[2025-03-24 11:02:59,613: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 11:02:59,613: ERROR: main: 'WindowsPath' object has no attribute 'model_training']
+Traceback (most recent call last):
+  File "main.py", line 46, in <module>
+    pipeline_mlflow.setup_mlflow()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_03_model_training_pipeline.py", line 102, in setup_mlflow
+    trained_model_path = self.config.model_training.trained_model_path
+AttributeError: 'WindowsPath' object has no attribute 'model_training'
+[2025-03-24 11:51:36,572: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 11:51:36,572: ERROR: main: __init__() takes 1 positional argument but 2 were given]
+Traceback (most recent call last):
+  File "main.py", line 46, in <module>
+    pipeline_mlflow = mlflow_pipeline(PARAMS_FILE_PATH)
+TypeError: __init__() takes 1 positional argument but 2 were given
+[2025-03-24 11:52:24,628: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 11:52:24,628: INFO: main: >>>>>> stage SETUP MLFLOW completed <<<<<<
+
+x==========x]
+[2025-03-24 11:55:01,914: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 11:55:01,914: INFO: main: >>>>>> stage SETUP MLFLOW completed <<<<<<
+
+x==========x]
+[2025-03-24 11:56:19,062: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 11:56:19,077: ERROR: main: 'types.SimpleNamespace' object has no attribute 'history_path']
+Traceback (most recent call last):
+  File "main.py", line 48, in <module>
+    pipeline_mlflow.main()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 35, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 15, in main
+    mlflow_config = mlflow_manager.get_mlflow_config()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\config\configuration.py", line 128, in get_mlflow_config
+    history_path = ml_flow_data_config.history_path,
+AttributeError: 'types.SimpleNamespace' object has no attribute 'history_path'
+[2025-03-24 11:57:26,966: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 11:57:26,966: ERROR: main: MLFLOW_CONFIG() takes no arguments]
+Traceback (most recent call last):
+  File "main.py", line 48, in <module>
+    pipeline_mlflow.main()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 35, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 15, in main
+    mlflow_config = mlflow_manager.get_mlflow_config()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\config\configuration.py", line 124, in get_mlflow_config
+    ml_flow_config = MLFLOW_CONFIG(
+TypeError: MLFLOW_CONFIG() takes no arguments
+[2025-03-24 12:04:13,041: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 12:04:13,041: ERROR: main: MLFLOW_CONFIG() takes no arguments]
+Traceback (most recent call last):
+  File "main.py", line 48, in <module>
+    pipeline_mlflow.main()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 35, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 15, in main
+    mlflow_config = mlflow_manager.get_mlflow_config()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\config\configuration.py", line 125, in get_mlflow_config
+    ml_flow_config = MLFLOW_CONFIG(
+TypeError: MLFLOW_CONFIG() takes no arguments
+[2025-03-24 12:05:49,017: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 12:05:49,017: ERROR: main: [Errno 2] No such file or directory: 'data/trained_model/cnn_lstm_modeltrained_model.h5']
+Traceback (most recent call last):
+  File "main.py", line 48, in <module>
+    pipeline_mlflow.main()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 35, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 26, in main
+    with open(model_path, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/trained_model/cnn_lstm_modeltrained_model.h5'
+[2025-03-24 12:06:16,237: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 12:06:16,237: ERROR: main: invalid load key, 'H'.]
+Traceback (most recent call last):
+  File "main.py", line 48, in <module>
+    pipeline_mlflow.main()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 35, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 27, in main
+    model = pickle.load(f)
+_pickle.UnpicklingError: invalid load key, 'H'.
+[2025-03-24 12:08:29,986: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 12:08:29,986: ERROR: main: file must have 'read', 'readinto' and 'readline' attributes]
+Traceback (most recent call last):
+  File "main.py", line 48, in <module>
+    pipeline_mlflow.main()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 35, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 27, in main
+    model = pickle.load(f)
+TypeError: file must have 'read', 'readinto' and 'readline' attributes
+[2025-03-24 12:12:49,163: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 12:12:49,163: ERROR: main: Unable to synchronously open file (file signature not found)]
+Traceback (most recent call last):
+  File "main.py", line 48, in <module>
+    pipeline_mlflow.main()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 38, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 27, in main
+    history = load_model(history_path)
+  File "U:\nlp_project\Image_Sharing_Plateform\venv\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "U:\nlp_project\Image_Sharing_Plateform\venv\lib\site-packages\h5py\_hl\files.py", line 562, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+  File "U:\nlp_project\Image_Sharing_Plateform\venv\lib\site-packages\h5py\_hl\files.py", line 235, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+  File "h5py\\_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py\\_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py\\h5f.pyx", line 102, in h5py.h5f.open
+OSError: Unable to synchronously open file (file signature not found)
+[2025-03-24 12:13:58,254: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 12:13:58,263: ERROR: main: file must have 'read', 'readinto' and 'readline' attributes]
+Traceback (most recent call last):
+  File "main.py", line 48, in <module>
+    pipeline_mlflow.main()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 38, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 33, in main
+    history = pickle.load(f)
+TypeError: file must have 'read', 'readinto' and 'readline' attributes
+[2025-03-24 12:14:45,316: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-24 12:14:45,631: DEBUG: cmd: Popen(['git', 'version'], cwd=U:\nlp_project\Image_Sharing_Plateform, stdin=None, shell=False, universal_newlines=False)]
+[2025-03-24 12:14:45,662: DEBUG: cmd: Popen(['git', 'version'], cwd=U:\nlp_project\Image_Sharing_Plateform, stdin=None, shell=False, universal_newlines=False)]
+[2025-03-24 12:14:45,756: INFO: main: >>>>>> stage SETUP MLFLOW completed <<<<<<
+
+x==========x]

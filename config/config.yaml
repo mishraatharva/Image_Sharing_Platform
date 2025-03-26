@@ -1,0 +1,31 @@
+data_root: data/row
+
+feature_extraction:
+  image_data_path : U:/nlp_project/Image_Sharing_Plateform/data/row/Flickr8k_Dataset/Flicker8k_Dataset
+  extracted_feature_path : data/processed
+  resize_img_height : 500
+  resize_img_width : 500
+
+data_transformation:
+  original_image_data_path : U:/nlp_project/Image_Sharing_Plateform/data/row/Flickr8k_Dataset/Flicker8k_Dataset
+  original_caption_data_path : U:/nlp_project/Image_Sharing_Plateform/data/row/Flickr8k_text
+  preprocessed_data_path : U:/nlp_project/Image_Sharing_Plateform/data/processed
+  training_data : data/processed/train
+  validation_data : data/processed/validation
+  vectorize_path : data/processed/vectorizer
+  SEQ_LENGTH : 15
+
+dataset_creation:
+  extracted_feature_path : U:\nlp_project\Image_Sharing_Plateform\data\processed\extracted_features.p
+  training_data_path : U:\nlp_project\Image_Sharing_Plateform\data\processed\training_data.txt
+  validation_data_path : U:\nlp_project\Image_Sharing_Plateform\data\processed\validation_data.txt
+
+
+model_training:
+  train_data_path : data/processed/train
+  validation_data_path : data/processed/validation
+  trained_model_path : data/trained_model/cnn_lstm_model
+
+# DB_PARAMETERS:
+#   user-id : mishraatharva825
+#   password : 5IXJ8vQXqr80qANX

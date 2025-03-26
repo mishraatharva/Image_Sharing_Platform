@@ -1,0 +1,15 @@
+flask
+flask_wtf
+Flask-PyMongo
+pymongo
+pymongo[srv]
+pandas
+tensorflow==2.10
+seaborn
+matplotlib
+nltk
+scikit-learn
+numpy
+tqdm
+ensure
+email-validator
