@@ -44,5 +44,5 @@ The Image Caption Generator is an exciting demonstration of how AI can bridge th
 
 Clone this repository:
 ```
- git clone https://github.com/your-username/image-caption-generator.git
+ git clone https://github.com/mishraatharva/Image_Sharing_Platform.git
 ```
