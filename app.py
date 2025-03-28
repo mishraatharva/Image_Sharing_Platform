@@ -13,7 +13,7 @@ app = Flask(__name__, template_folder="src/image_sharing_plateform/web_app/templ
 
 
 app.config["SECRET_KEY"] = "this_is_a_secret_key"
-app.config["MONGO_URI"] = "mongodb+srv://mishraatharva825:5IXJ8vQXqr80qANX@image-sharing-platform.5kejl.mongodb.net/image-sharing-platform-database?retryWrites=true&w=majority&appName=image-sharing-platform"
+app.config["MONGO_URI"] = "you mongo db secret key"
 
 mongo = PyMongo(app)
 
