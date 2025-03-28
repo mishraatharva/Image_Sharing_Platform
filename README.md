@@ -11,13 +11,37 @@
 
 ## 🔥 Key Features
 - User can signup by providing required data.
-- Login again using gmail and password
+- Login using gmail and password
 - All data in stored in mongodb
 - User will login and upload a picture of his choice and caption for uploaded image can be created automatically.
 
 ## Overview:
 
 This repository contains code for an image caption generation system using deep learning techniques. The system leverages a pretrained VGG16 model for feature extraction and a custom captioning model which was trained using LSTM for generating captions. The model is trained on the Flickr8k dataset using an lstm to generate caption.
+
+## Model Architecture:
+![Alt text](images/vgg_lstm_model.png)
+
+## Project demo:
+home page:
+![Alt text](images/home.png)
+
+
+
+signup page:
+![Alt text](images/signup.png)
+
+
+
+login page:
+![Alt text](images/login.png)
+
+
+
+user dashboard:
+![Alt text](images/dashboard.png)
+
+
 
 ## 📚 How It Works
 

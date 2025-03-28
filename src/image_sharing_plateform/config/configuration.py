@@ -24,7 +24,7 @@ class FeatureExtractionConfigurationManager:
     def get_feature_extraction_config(self) -> ExtractedFeatureConfig:
         config = self.config.feature_extraction
 
-        # create_directories([config.extracted_feature_path])
+        create_directories([config.extracted_feature_path])
 
         feature_extraction_config = ExtractedFeatureConfig(
             image_data_path = config.image_data_path,
@@ -54,7 +54,7 @@ class DataTransformationConfigurationManager:
     def get_data_transformation_config(self) -> DataTransformationConfig:
         config = self.config.data_transformation
 
-        create_directories([config.preprocessed_data_path, config.training_data, config.validation_data])
+        create_directories([config.training_data, config.validation_data, config.vectorizer_path])
 
         data_transformation_config = DataTransformationConfig(
             original_image_data_path = config.original_image_data_path,
@@ -63,11 +63,13 @@ class DataTransformationConfigurationManager:
             
             preprocessed_data_path = config.preprocessed_data_path,
 
+            extracted_features_path = config.extracted_features_path,
+
             training_data = config.training_data,
             
             validation_data = config.validation_data,
             
-            vectorize_path = config.vectorize_path,
+            vectorizer_path = config.vectorizer_path,
 
             SEQ_LENGTH = config.SEQ_LENGTH
             

@@ -14,12 +14,14 @@ class FeatureExtraction:
     def __init__(self, config):
         self.config = config
     
-    def extract_features(self):
+    def extract_features(self,logger):
         image_data_path = self.config.image_data_path
 
         # Load VGG16 model without top layers
         base_model = VGG16(input_shape=(self.config.resize_img_height, self.config.resize_img_width, 3), 
                            include_top=False, weights='imagenet')
+
+        logger.info(f"base_model vgg loaded")
 
         # Add GlobalAveragePooling to convert (None, 15, 15, 512) → (None, 512)
         model = tf.keras.Sequential([
@@ -28,6 +30,11 @@ class FeatureExtraction:
         ])
 
         features = {}
+        
+        logger.info(f"feature extraction started.")
+
+        extracted_features = 0
+        total_points = len(os.listdir(image_data_path))
         
         for img in tqdm(os.listdir(image_data_path)):
             filename = os.path.join(image_data_path, img)
@@ -42,5 +49,11 @@ class FeatureExtraction:
             feature = model.predict(image)  # Shape: (1, 512)
 
             features[img] = feature.flatten()  # Convert (1, 512) → (512,)
+            extracted_features += 1
+
+            if extracted_features % 1000 == 0:
+                logger.info(f"{extracted_features} data points completed")
         
+        logger.info(f"feature extraction complete for {total_points} data points")
+
         return features

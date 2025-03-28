@@ -2,10 +2,6 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
-from dataclasses import dataclass
-from pathlib import Path
-
-
 @dataclass(frozen=True)
 class ExtractedFeatureConfig:
     image_data_path: Path
@@ -19,9 +15,10 @@ class DataTransformationConfig:
     original_image_data_path: Path
     original_caption_data_path: Path
     preprocessed_data_path : Path
+    extracted_features_path : Path
     training_data : Path
     validation_data : Path
-    vectorize_path : Path
+    vectorizer_path : Path
     SEQ_LENGTH : int
 
 

@@ -1,156 +1,271 @@
-[2025-03-24 07:02:02,251: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
-[2025-03-24 07:02:02,251: INFO: stage_01_data_transformation: DataTransformationConfigurationManager object created]
-[2025-03-24 07:02:02,267: INFO: stage_01_data_transformation: created a dictionary 'descriptions' containing image is a key : all caption in a list as a value.]
-[2025-03-24 07:02:02,518: INFO: stage_01_data_transformation: data cleaning completed]
-[2025-03-24 07:02:02,518: INFO: stage_01_data_transformation: training_data, validation_data data created seperately]
-[2025-03-24 07:02:02,549: INFO: stage_01_data_transformation: training_data, validation_data data saved at required location]
-[2025-03-24 07:02:02,597: INFO: stage_01_data_transformation: 'train_data_captions, train_data_images, train_data_features' created]
-[2025-03-24 07:02:05,253: INFO: stage_01_data_transformation: vectorizer object created]
-[2025-03-24 07:04:22,315: INFO: stage_01_data_transformation: vectorized training_data]
-[2025-03-24 07:04:22,331: INFO: stage_01_data_transformation: 'validation_data_captions, validation_data_images, validation_data_features' created]
-[2025-03-24 07:04:56,510: INFO: stage_01_data_transformation: vectorized validation_data]
-[2025-03-24 07:04:56,568: INFO: stage_01_data_transformation: final train data saved containes train_data_captions, train_data_images, train_data_features in pickle file]
-[2025-03-24 07:04:56,581: INFO: stage_01_data_transformation: final validation data saved containes validation_data_captions, validation_data_images, validation_data_features in pickle file]
-[2025-03-24 07:04:56,599: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
-[2025-03-24 07:04:57,161: INFO: builder_impl: Assets written to: U:\nlp_project\Image_Sharing_Plateform\data\processed\vectorizer\assets]
-[2025-03-24 07:04:57,182: INFO: stage_01_data_transformation: vectorizer data saved for further use.]
-[2025-03-24 07:04:57,196: INFO: main: >>>>>> stage Data Transformation Stage completed <<<<<<
+[2025-03-26 18:03:03,530: INFO: main: >>>>>> stage Feature Extraction Stage started <<<<<<]
+[2025-03-26 18:03:03,546: INFO: stage_01_feature_extraction: ExtractedFeatureConfig(image_data_path='data/row/Flickr8k_Dataset/Flicker8k_Dataset', extracted_feature_path='data/processed/extracted_features', resize_img_height=500, resize_img_width=500)]
+[2025-03-26 18:03:04,411: INFO: data_extraction: base_model vgg loaded]
+[2025-03-26 18:03:04,441: INFO: data_extraction: feature extraction started.]
+[2025-03-26 18:04:35,655: INFO: data_extraction: 1000 data points completed]
+[2025-03-26 18:07:53,991: INFO: data_extraction: 2000 data points completed]
+[2025-03-26 18:13:12,436: INFO: data_extraction: 3000 data points completed]
+[2025-03-26 18:15:10,396: INFO: data_extraction: 4000 data points completed]
+[2025-03-26 18:17:10,290: INFO: data_extraction: 5000 data points completed]
+[2025-03-26 18:19:12,588: INFO: data_extraction: 6000 data points completed]
+[2025-03-26 18:21:12,686: INFO: data_extraction: 7000 data points completed]
+[2025-03-26 18:23:14,216: INFO: data_extraction: 8000 data points completed]
+[2025-03-26 18:26:34,398: INFO: data_extraction: feature extraction complete for 8091 data points]
+[2025-03-26 18:26:34,468: INFO: stage_01_feature_extraction: extracted feature saved to data/processed/extracted_features/extracted_features.p]
+[2025-03-26 18:26:34,470: INFO: main: >>>>>> stage Feature Extraction Stage completed <<<<<<
 
 x==========x]
-[2025-03-24 08:30:08,463: INFO: main: >>>>>> stage Model Training Stage started <<<<<<]
-[2025-03-24 08:30:08,472: INFO: stage_03_model_training_pipeline: ModelTrainingConfigurationManager object created]
-[2025-03-24 08:30:09,606: INFO: stage_03_model_training_pipeline: training data loaded.]
-[2025-03-24 08:30:09,753: INFO: stage_03_model_training_pipeline: validation data loaded]
-[2025-03-24 08:30:09,753: INFO: stage_03_model_training_pipeline: train_data_features and train_caption_tokenized fetched from loaded train_data]
-[2025-03-24 08:30:09,753: INFO: stage_03_model_training_pipeline: validation_data_features and validation_caption_tokenized fetched from loaded validation data]
-[2025-03-24 11:02:05,414: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 11:02:05,414: ERROR: main: 'WindowsPath' object has no attribute 'model_training']
+[2025-03-26 18:26:34,470: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-26 18:26:34,476: ERROR: main: __init__() got an unexpected keyword argument 'vectorizer_path']
 Traceback (most recent call last):
-  File "main.py", line 46, in <module>
-    pipeline_mlflow.setup_mlflow()
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_03_model_training_pipeline.py", line 102, in setup_mlflow
-    trained_model_path = self.config.model_training.trained_model_path
-AttributeError: 'WindowsPath' object has no attribute 'model_training'
-[2025-03-24 11:02:59,613: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 11:02:59,613: ERROR: main: 'WindowsPath' object has no attribute 'model_training']
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 88, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 36, in main
+    data_transformation_config = config.get_data_transformation_config()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\config\configuration.py", line 59, in get_data_transformation_config
+    data_transformation_config = DataTransformationConfig(
+TypeError: __init__() got an unexpected keyword argument 'vectorizer_path'
+[2025-03-26 18:29:43,964: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-26 18:29:43,974: INFO: stage_02_data_transformation: data_transformation object created]
+[2025-03-26 18:29:44,004: INFO: stage_02_data_transformation: descriptions created]
+[2025-03-26 18:29:44,265: INFO: stage_02_data_transformation: full data cleaned]
+[2025-03-26 18:29:44,265: INFO: stage_02_data_transformation: data splited into train and velidation test]
+[2025-03-26 18:29:44,295: INFO: stage_02_data_transformation: train_data and validaiton_data saved.]
+[2025-03-26 18:29:44,315: ERROR: main: [Errno 2] No such file or directory: 'data/processed/extracted_features.p']
 Traceback (most recent call last):
-  File "main.py", line 46, in <module>
-    pipeline_mlflow.setup_mlflow()
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_03_model_training_pipeline.py", line 102, in setup_mlflow
-    trained_model_path = self.config.model_training.trained_model_path
-AttributeError: 'WindowsPath' object has no attribute 'model_training'
-[2025-03-24 11:51:36,572: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 11:51:36,572: ERROR: main: __init__() takes 1 positional argument but 2 were given]
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 88, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 60, in main
+    train_data_features = data_transformation.create_features(train_data_images, "extracted_features.p")
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\components\data_transformation.py", line 100, in create_features
+    all_features = load(open(file_path,"rb"))
+FileNotFoundError: [Errno 2] No such file or directory: 'data/processed/extracted_features.p'
+[2025-03-26 18:35:31,428: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-26 18:35:31,428: ERROR: main: 'types.SimpleNamespace' object has no attribute 'extracted_features']
 Traceback (most recent call last):
-  File "main.py", line 46, in <module>
-    pipeline_mlflow = mlflow_pipeline(PARAMS_FILE_PATH)
-TypeError: __init__() takes 1 positional argument but 2 were given
-[2025-03-24 11:52:24,628: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 11:52:24,628: INFO: main: >>>>>> stage SETUP MLFLOW completed <<<<<<
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 88, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 36, in main
+    data_transformation_config = config.get_data_transformation_config()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\config\configuration.py", line 64, in get_data_transformation_config
+    extracted_features = config.extracted_features,
+AttributeError: 'types.SimpleNamespace' object has no attribute 'extracted_features'
+[2025-03-26 18:36:24,748: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-26 18:36:24,752: INFO: stage_02_data_transformation: data_transformation object created]
+[2025-03-26 18:36:24,764: INFO: stage_02_data_transformation: descriptions created]
+[2025-03-26 18:36:25,000: INFO: stage_02_data_transformation: full data cleaned]
+[2025-03-26 18:36:25,000: INFO: stage_02_data_transformation: data splited into train and velidation test]
+[2025-03-26 18:36:25,015: ERROR: main: 'DataTransformationConfig' object has no attribute 'preprocessed_data_path']
+Traceback (most recent call last):
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 88, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 53, in main
+    data_transformation.save_descriptions(training_data,"training_data.txt")
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\components\data_transformation.py", line 67, in save_descriptions
+    cleaned_data_path = self.config.preprocessed_data_path + "/" +  filename
+AttributeError: 'DataTransformationConfig' object has no attribute 'preprocessed_data_path'
+[2025-03-26 18:41:31,643: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-26 18:41:31,643: INFO: stage_02_data_transformation: data_transformation object created]
+[2025-03-26 18:41:31,674: INFO: stage_02_data_transformation: descriptions created]
+[2025-03-26 18:41:31,919: INFO: stage_02_data_transformation: full data cleaned]
+[2025-03-26 18:41:31,919: INFO: stage_02_data_transformation: data splited into train and velidation test]
+[2025-03-26 18:41:31,919: ERROR: main: 'DataTransformationConfig' object has no attribute 'extracted_features_path']
+Traceback (most recent call last):
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 88, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 59, in main
+    train_data_images = data_transformation.create_photos("training_data.txt")
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\components\data_transformation.py", line 87, in create_photos
+    file_path = self.config.extracted_features_path + "/"+ filename
+AttributeError: 'DataTransformationConfig' object has no attribute 'extracted_features_path'
+[2025-03-26 18:41:59,124: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-26 18:41:59,124: ERROR: main: __init__() got an unexpected keyword argument 'extracted_features']
+Traceback (most recent call last):
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 88, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 36, in main
+    data_transformation_config = config.get_data_transformation_config()
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\config\configuration.py", line 59, in get_data_transformation_config
+    data_transformation_config = DataTransformationConfig(
+TypeError: __init__() got an unexpected keyword argument 'extracted_features'
+[2025-03-26 18:43:27,221: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-26 18:43:27,221: INFO: stage_02_data_transformation: data_transformation object created]
+[2025-03-26 18:43:27,251: INFO: stage_02_data_transformation: descriptions created]
+[2025-03-26 18:43:27,488: INFO: stage_02_data_transformation: full data cleaned]
+[2025-03-26 18:43:27,488: INFO: stage_02_data_transformation: data splited into train and velidation test]
+[2025-03-26 18:43:27,488: ERROR: main: [Errno 2] No such file or directory: 'data/processed/extracted_features/training_data.txt']
+Traceback (most recent call last):
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 88, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 59, in main
+    train_data_images = data_transformation.create_photos("training_data.txt")
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\components\data_transformation.py", line 88, in create_photos
+    file = load_doc(file_path)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\data\load_data.py", line 26, in load_doc
+    file = open(filename, 'r')
+FileNotFoundError: [Errno 2] No such file or directory: 'data/processed/extracted_features/training_data.txt'
+[2025-03-26 18:44:09,985: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-26 18:44:09,985: INFO: stage_02_data_transformation: data_transformation object created]
+[2025-03-26 18:44:10,016: INFO: stage_02_data_transformation: descriptions created]
+[2025-03-26 18:44:10,254: INFO: stage_02_data_transformation: full data cleaned]
+[2025-03-26 18:44:10,254: INFO: stage_02_data_transformation: data splited into train and velidation test]
+[2025-03-26 18:44:10,268: ERROR: main: [Errno 2] No such file or directory: 'data/preprocessed/training_data.txt']
+Traceback (most recent call last):
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 88, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 53, in main
+    data_transformation.save_descriptions(training_data,"training_data.txt")
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\components\data_transformation.py", line 68, in save_descriptions
+    file = open(cleaned_data_path,"w")
+FileNotFoundError: [Errno 2] No such file or directory: 'data/preprocessed/training_data.txt'
+[2025-03-26 18:48:15,694: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-26 18:48:15,694: INFO: stage_02_data_transformation: data_transformation object created]
+[2025-03-26 18:48:15,726: INFO: stage_02_data_transformation: descriptions created]
+[2025-03-26 18:48:15,962: INFO: stage_02_data_transformation: full data cleaned]
+[2025-03-26 18:48:15,977: INFO: stage_02_data_transformation: data splited into train and velidation test]
+[2025-03-26 18:48:15,977: ERROR: main: [Errno 2] No such file or directory: 'data/preprocessed/training_data.txt']
+Traceback (most recent call last):
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 88, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 53, in main
+    data_transformation.save_descriptions(training_data,"training_data.txt")
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\components\data_transformation.py", line 68, in save_descriptions
+    file = open(cleaned_data_path,"w")
+FileNotFoundError: [Errno 2] No such file or directory: 'data/preprocessed/training_data.txt'
+[2025-03-26 18:53:34,835: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-26 18:53:34,849: INFO: stage_02_data_transformation: data_transformation object created]
+[2025-03-26 18:53:34,865: INFO: stage_02_data_transformation: descriptions created]
+[2025-03-26 18:53:35,101: INFO: stage_02_data_transformation: full data cleaned]
+[2025-03-26 18:53:35,116: INFO: stage_02_data_transformation: data splited into train and velidation test]
+[2025-03-26 18:53:35,116: ERROR: main: [Errno 2] No such file or directory: 'data/preprocessed/training_data.txt']
+Traceback (most recent call last):
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 86, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 53, in main
+    data_transformation.save_descriptions(training_data,"training_data.txt")
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\components\data_transformation.py", line 68, in save_descriptions
+    file = open(cleaned_data_path,"w")
+FileNotFoundError: [Errno 2] No such file or directory: 'data/preprocessed/training_data.txt'
+[2025-03-26 18:55:08,176: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-26 18:55:08,176: INFO: stage_02_data_transformation: data_transformation object created]
+[2025-03-26 18:55:08,207: INFO: stage_02_data_transformation: descriptions created]
+[2025-03-26 18:55:08,448: INFO: stage_02_data_transformation: full data cleaned]
+[2025-03-26 18:55:08,448: INFO: stage_02_data_transformation: data splited into train and velidation test]
+[2025-03-26 18:55:08,459: ERROR: main: [Errno 2] No such file or directory: 'data\\preprocessed\\training_data.txt']
+Traceback (most recent call last):
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 86, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 53, in main
+    data_transformation.save_descriptions(training_data,"training_data.txt")
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\components\data_transformation.py", line 68, in save_descriptions
+    file = open(Path(cleaned_data_path),"w")
+FileNotFoundError: [Errno 2] No such file or directory: 'data\\preprocessed\\training_data.txt'
+[2025-03-26 18:56:41,983: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-26 18:56:41,993: INFO: stage_02_data_transformation: data_transformation object created]
+[2025-03-26 18:56:42,013: INFO: stage_02_data_transformation: descriptions created]
+[2025-03-26 18:56:42,253: INFO: stage_02_data_transformation: full data cleaned]
+[2025-03-26 18:56:42,253: INFO: stage_02_data_transformation: data splited into train and velidation test]
+[2025-03-26 18:56:42,267: ERROR: main: [Errno 2] No such file or directory: 'data\\preprocessed\\training_data.txt']
+Traceback (most recent call last):
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 86, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 53, in main
+    data_transformation.save_descriptions(training_data,"training_data.txt")
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\components\data_transformation.py", line 68, in save_descriptions
+    file = open(Path(cleaned_data_path),"w")
+FileNotFoundError: [Errno 2] No such file or directory: 'data\\preprocessed\\training_data.txt'
+[2025-03-27 05:18:43,908: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-27 05:18:43,908: INFO: stage_02_data_transformation: data_transformation object created]
+[2025-03-27 05:18:43,940: INFO: stage_02_data_transformation: descriptions created]
+[2025-03-27 05:18:44,337: INFO: stage_02_data_transformation: full data cleaned]
+[2025-03-27 05:18:44,344: INFO: stage_02_data_transformation: data splited into train and velidation test]
+[2025-03-27 05:18:44,362: ERROR: main: [Errno 2] No such file or directory: 'data/preprocessed/training_data.txt']
+Traceback (most recent call last):
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 86, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 53, in main
+    data_transformation.save_descriptions(training_data,"training_data.txt")
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\components\data_transformation.py", line 71, in save_descriptions
+    with open(cleaned_data_path, "w", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/preprocessed/training_data.txt'
+[2025-03-27 05:24:13,491: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-27 05:24:13,495: INFO: stage_02_data_transformation: data_transformation object created]
+[2025-03-27 05:24:13,519: INFO: stage_02_data_transformation: descriptions created]
+[2025-03-27 05:24:13,767: INFO: stage_02_data_transformation: full data cleaned]
+[2025-03-27 05:24:13,769: INFO: stage_02_data_transformation: data splited into train and velidation test]
+[2025-03-27 05:24:13,777: ERROR: main: [Errno 2] No such file or directory: 'data/preprocessed/training_data.txt']
+Traceback (most recent call last):
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 86, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 53, in main
+    data_transformation.save_descriptions(training_data,"training_data.txt")
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\components\data_transformation.py", line 71, in save_descriptions
+    with open(cleaned_data_path, "w", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/preprocessed/training_data.txt'
+[2025-03-27 05:25:05,787: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-27 05:25:05,797: INFO: stage_02_data_transformation: data_transformation object created]
+[2025-03-27 05:25:05,817: INFO: stage_02_data_transformation: descriptions created]
+[2025-03-27 05:25:06,058: INFO: stage_02_data_transformation: full data cleaned]
+[2025-03-27 05:25:06,058: INFO: stage_02_data_transformation: data splited into train and velidation test]
+[2025-03-27 05:25:06,078: INFO: stage_02_data_transformation: train_data and validaiton_data saved.]
+[2025-03-27 05:25:06,078: ERROR: main: [Errno 2] No such file or directory: 'data/processed/extracted_features/training_data.txt']
+Traceback (most recent call last):
+  File "main.py", line 25, in <module>
+    data_transformation.main(logger)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 86, in main
+    raise e
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_02_data_transformation.py", line 58, in main
+    train_data_images = data_transformation.create_photos("training_data.txt")
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\components\data_transformation.py", line 77, in create_photos
+    file = load_doc(file_path)
+  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\data\load_data.py", line 26, in load_doc
+    file = open(filename, 'r')
+FileNotFoundError: [Errno 2] No such file or directory: 'data/processed/extracted_features/training_data.txt'
+[2025-03-28 12:50:24,921: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-03-28 12:54:30,017: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-03-28 12:54:30,821: INFO: builder_impl: Assets written to: data/processed/vectorizer/vectorizer\assets]
+[2025-03-28 12:54:30,837: INFO: main: >>>>>> stage Data Transformation Stage completed <<<<<<
 
 x==========x]
-[2025-03-24 11:55:01,914: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 11:55:01,914: INFO: main: >>>>>> stage SETUP MLFLOW completed <<<<<<
+[2025-03-28 13:01:59,030: INFO: main: >>>>>> stage Model Training Stage started <<<<<<]
+[2025-03-28 13:02:40,474: DEBUG: lstm: Layer lstm will use cuDNN kernels when running on GPU.]
+[2025-03-28 13:04:46,565: DEBUG: attrs: Creating converter from 5 to 3]
+[2025-03-28 13:04:46,649: INFO: main: >>>>>> stage Model Training Stage completed <<<<<<
 
 x==========x]
-[2025-03-24 11:56:19,062: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 11:56:19,077: ERROR: main: 'types.SimpleNamespace' object has no attribute 'history_path']
-Traceback (most recent call last):
-  File "main.py", line 48, in <module>
-    pipeline_mlflow.main()
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 35, in main
-    raise e
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 15, in main
-    mlflow_config = mlflow_manager.get_mlflow_config()
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\config\configuration.py", line 128, in get_mlflow_config
-    history_path = ml_flow_data_config.history_path,
-AttributeError: 'types.SimpleNamespace' object has no attribute 'history_path'
-[2025-03-24 11:57:26,966: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 11:57:26,966: ERROR: main: MLFLOW_CONFIG() takes no arguments]
-Traceback (most recent call last):
-  File "main.py", line 48, in <module>
-    pipeline_mlflow.main()
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 35, in main
-    raise e
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 15, in main
-    mlflow_config = mlflow_manager.get_mlflow_config()
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\config\configuration.py", line 124, in get_mlflow_config
-    ml_flow_config = MLFLOW_CONFIG(
-TypeError: MLFLOW_CONFIG() takes no arguments
-[2025-03-24 12:04:13,041: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 12:04:13,041: ERROR: main: MLFLOW_CONFIG() takes no arguments]
-Traceback (most recent call last):
-  File "main.py", line 48, in <module>
-    pipeline_mlflow.main()
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 35, in main
-    raise e
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 15, in main
-    mlflow_config = mlflow_manager.get_mlflow_config()
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\config\configuration.py", line 125, in get_mlflow_config
-    ml_flow_config = MLFLOW_CONFIG(
-TypeError: MLFLOW_CONFIG() takes no arguments
-[2025-03-24 12:05:49,017: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 12:05:49,017: ERROR: main: [Errno 2] No such file or directory: 'data/trained_model/cnn_lstm_modeltrained_model.h5']
-Traceback (most recent call last):
-  File "main.py", line 48, in <module>
-    pipeline_mlflow.main()
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 35, in main
-    raise e
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 26, in main
-    with open(model_path, "rb") as f:
-FileNotFoundError: [Errno 2] No such file or directory: 'data/trained_model/cnn_lstm_modeltrained_model.h5'
-[2025-03-24 12:06:16,237: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 12:06:16,237: ERROR: main: invalid load key, 'H'.]
-Traceback (most recent call last):
-  File "main.py", line 48, in <module>
-    pipeline_mlflow.main()
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 35, in main
-    raise e
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 27, in main
-    model = pickle.load(f)
-_pickle.UnpicklingError: invalid load key, 'H'.
-[2025-03-24 12:08:29,986: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 12:08:29,986: ERROR: main: file must have 'read', 'readinto' and 'readline' attributes]
-Traceback (most recent call last):
-  File "main.py", line 48, in <module>
-    pipeline_mlflow.main()
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 35, in main
-    raise e
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 27, in main
-    model = pickle.load(f)
-TypeError: file must have 'read', 'readinto' and 'readline' attributes
-[2025-03-24 12:12:49,163: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 12:12:49,163: ERROR: main: Unable to synchronously open file (file signature not found)]
-Traceback (most recent call last):
-  File "main.py", line 48, in <module>
-    pipeline_mlflow.main()
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 38, in main
-    raise e
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 27, in main
-    history = load_model(history_path)
-  File "U:\nlp_project\Image_Sharing_Plateform\venv\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
-    raise e.with_traceback(filtered_tb) from None
-  File "U:\nlp_project\Image_Sharing_Plateform\venv\lib\site-packages\h5py\_hl\files.py", line 562, in __init__
-    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
-  File "U:\nlp_project\Image_Sharing_Plateform\venv\lib\site-packages\h5py\_hl\files.py", line 235, in make_fid
-    fid = h5f.open(name, flags, fapl=fapl)
-  File "h5py\\_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
-  File "h5py\\_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
-  File "h5py\\h5f.pyx", line 102, in h5py.h5f.open
-OSError: Unable to synchronously open file (file signature not found)
-[2025-03-24 12:13:58,254: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 12:13:58,263: ERROR: main: file must have 'read', 'readinto' and 'readline' attributes]
-Traceback (most recent call last):
-  File "main.py", line 48, in <module>
-    pipeline_mlflow.main()
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 38, in main
-    raise e
-  File "U:\nlp_project\Image_Sharing_Plateform\src\image_sharing_plateform\pipeline\stage_04_mlflow_pipeline.py", line 33, in main
-    history = pickle.load(f)
-TypeError: file must have 'read', 'readinto' and 'readline' attributes
-[2025-03-24 12:14:45,316: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
-[2025-03-24 12:14:45,631: DEBUG: cmd: Popen(['git', 'version'], cwd=U:\nlp_project\Image_Sharing_Plateform, stdin=None, shell=False, universal_newlines=False)]
-[2025-03-24 12:14:45,662: DEBUG: cmd: Popen(['git', 'version'], cwd=U:\nlp_project\Image_Sharing_Plateform, stdin=None, shell=False, universal_newlines=False)]
-[2025-03-24 12:14:45,756: INFO: main: >>>>>> stage SETUP MLFLOW completed <<<<<<
+[2025-03-28 13:07:37,111: INFO: main: >>>>>> stage SETUP MLFLOW started <<<<<<]
+[2025-03-28 13:07:37,409: DEBUG: cmd: Popen(['git', 'version'], cwd=U:\nlp_project\Image_Sharing_Plateform, stdin=None, shell=False, universal_newlines=False)]
+[2025-03-28 13:07:37,424: DEBUG: cmd: Popen(['git', 'version'], cwd=U:\nlp_project\Image_Sharing_Plateform, stdin=None, shell=False, universal_newlines=False)]
+[2025-03-28 13:07:37,440: DEBUG: cmd: Popen(['git', 'check-ignore', 'U:\\nlp_project\\Image_Sharing_Plateform'], cwd=U:\nlp_project\Image_Sharing_Plateform, stdin=None, shell=False, universal_newlines=False)]
+[2025-03-28 13:07:37,472: DEBUG: cmd: Popen(['git', 'cat-file', '--batch-check'], cwd=U:\nlp_project\Image_Sharing_Plateform, stdin=<valid stream>, shell=False, universal_newlines=False)]
+[2025-03-28 13:07:37,597: INFO: main: >>>>>> stage SETUP MLFLOW completed <<<<<<
 
 x==========x]

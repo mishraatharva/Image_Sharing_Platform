@@ -1,24 +1,23 @@
-data_root: data/row
-
 feature_extraction:
-  image_data_path : U:/nlp_project/Image_Sharing_Plateform/data/row/Flickr8k_Dataset/Flicker8k_Dataset
-  extracted_feature_path : data/processed
+  image_data_path : data/row/Flickr8k_Dataset/Flicker8k_Dataset
+  extracted_feature_path : data/processed/extracted_features
   resize_img_height : 500
   resize_img_width : 500
 
 data_transformation:
-  original_image_data_path : U:/nlp_project/Image_Sharing_Plateform/data/row/Flickr8k_Dataset/Flicker8k_Dataset
-  original_caption_data_path : U:/nlp_project/Image_Sharing_Plateform/data/row/Flickr8k_text
-  preprocessed_data_path : U:/nlp_project/Image_Sharing_Plateform/data/processed
+  original_image_data_path : data/row/Flickr8k_Dataset/Flicker8k_Dataset
+  original_caption_data_path : data/row/Flickr8k_text
+  extracted_features_path : data/processed/extracted_features
+  preprocessed_data_path : data/processed
   training_data : data/processed/train
   validation_data : data/processed/validation
-  vectorize_path : data/processed/vectorizer
+  vectorizer_path : data/processed/vectorizer
   SEQ_LENGTH : 15
 
 dataset_creation:
-  extracted_feature_path : U:\nlp_project\Image_Sharing_Plateform\data\processed\extracted_features.p
-  training_data_path : U:\nlp_project\Image_Sharing_Plateform\data\processed\training_data.txt
-  validation_data_path : U:\nlp_project\Image_Sharing_Plateform\data\processed\validation_data.txt
+  extracted_feature_path : data\processed\extracted_features.p
+  training_data_path : data\processed\training_data.txt
+  validation_data_path : data\processed\validation_data.txt
 
 
 model_training:

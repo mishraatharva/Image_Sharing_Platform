@@ -24,4 +24,4 @@ CreateLSTMSequence_config:
 
 model_prediction_config:
  trained_model_path : data/trained_model/cnn_lstm_model
- vectorizer_path : data/processed
+ vectorizer_path : data/processed/vectorizer

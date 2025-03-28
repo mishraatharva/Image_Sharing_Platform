@@ -14,12 +14,8 @@ class DataTransformation:
 
     def all_img_captions(self):
         """This function will take original caption data and return:
-
-        'descriptions': a dictionary containing key value pair of image and list of all captions of each image.
-        
-        In original data image and there caption is repeating.
+        'descriptions': a dictionary containing key value pair of image and list of all captions of each image. In original data image and there caption is repeating.
         """
-        
         path = self.config.original_caption_data_path + "/" + "Flickr8k.token.txt" 
 
         file = load_doc(Path(path))
@@ -68,24 +64,12 @@ class DataTransformation:
             for desc in desc_list:
                 lines.append(key + '\t' + desc )
         data = "\n".join(lines)
+        
         cleaned_data_path = self.config.preprocessed_data_path + "/" +  filename
-        file = open(cleaned_data_path,"w")
-        file.write(data)
-        file.close()
+        
+        with open(cleaned_data_path, "w", encoding="utf-8") as file:
+            file.write(data)
 
-    # def create_captions(self,filename):
-    #     file_path = self.config.preprocessed_data_path + "/"+ filename
-    #     print(file_path)
-    #     file = load_doc(file_path)
-    #     train_captions = {}
-    #     texts = file.split("\n")
-    #     for text in texts:
-    #         text = text.split("\t")
-    #         if text[0] not in train_captions:
-    #             train_captions[text[0]] = []
-    #         else:
-    #             train_captions[text[0]].append(text[1])
-    #     return train_captions
     
     def create_photos(self,filename):
         file_path = self.config.preprocessed_data_path + "/"+ filename
@@ -99,7 +83,7 @@ class DataTransformation:
     
     def create_features(self,photos,filename):
         #loading all features
-        file_path = self.config.preprocessed_data_path + "/"+ filename
+        file_path = self.config.extracted_features_path + "/"+ filename
         train_data_features = {}
         all_features = load(open(file_path,"rb"))
         #selecting only needed features

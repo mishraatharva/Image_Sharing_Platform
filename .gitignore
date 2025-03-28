@@ -1,3 +1,6 @@
-data/
+/data/ 
+!src/data/ 
 venv/
 temp_model/
+__pycache__/
+log/
