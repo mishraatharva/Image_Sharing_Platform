@@ -4,3 +4,4 @@ venv/
 temp_model/
 __pycache__/
 log/
+mlruns/
